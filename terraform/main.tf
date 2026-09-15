@@ -28,7 +28,7 @@ data "aws_ami" "ubuntu" {
 }
 
 module "vpc" {
-  source = "./modules/vpc"
+  source = "./modules/VPC"
 
   vpc_cidr = "10.0.0.0/16"
 
@@ -42,7 +42,7 @@ module "vpc" {
 }
 
 module "alb" {
-  source = "./modules/alb"
+  source = "./modules/ALB"
 
   vpc_id = module.vpc.vpc_id
 
@@ -54,7 +54,7 @@ module "alb" {
 }
 
 module "ec2" {
-  source = "./modules/ec2"
+  source = "./modules/EC2"
 
   vpc_id = module.vpc.vpc_id
 
